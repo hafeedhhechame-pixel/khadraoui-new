@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "products"
+    label: "المنتجات"
+    files:
+      - name: "products"
+        label: "قائمة المنتجات"
+        file: "src/data/products.json"
+        fields:
+          - name: "products"
+            label: "المنتجات"
+            widget: "list"
+            fields:
+              - {label: "المعرف", name: "id", widget: "number"}
+              - {label: "اسم المنتج", name: "name", widget: "string"}
+              - {label: "السعر", name: "price", widget: "number"}
+              - {label: "الصورة", name: "image", widget: "image"}
+              - {label: "الوصف", name: "description", widget: "text"}
+              - {label: "التصنيف", name: "category", widget: "select", options: ["أشجار مثمرة", "نباتات زينة", "أعشاب", "أخرى"]}

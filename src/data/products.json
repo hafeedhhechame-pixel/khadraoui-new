@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "شجرة ليمون قزمية",
+      "price": 1500,
+      "image": "/images/lemon-dwarf.jpg",
+      "description": "شجرة ليمون قزمية مثمرة ومناسبة للزراعة في الأصص.",
+      "category": "أشجار مثمرة"
+    },
+    {
+      "id": 2,
+      "name": "شجرة برتقال",
+      "price": 1200,
+      "image": "/images/orange.jpg",
+      "description": "شجرة برتقال عالية الجودة، تنتج ثماراً حلوة المذاق.",
+      "category": "أشجار مثمرة"
+    },
+    {
+      "id": 3,
+      "name": "ياسمين",
+      "price": 800,
+      "image": "/images/jasmine.jpg",
+      "description": "نبات الياسمين ذو الرائحة العطرة والزهور البيضاء الجميلة.",
+      "category": "نباتات زينة"
+    },
+    {
+      "id": 4,
+      "name": "شجرة زيتون",
+      "price": 2000,
+      "image": "/images/olive.jpg",
+      "description": "شجرة زيتون مباركة، تتحمل الجفاف وتعيش طويلاً.",
+      "category": "أشجار مثمرة"
+    },
+    {
+      "id": 5,
+      "name": "نعناع وريحان",
+      "price": 300,
+      "image": "/images/herbs.jpg",
+      "description": "مجموعة أعشاب عطرية طازجة للمطبخ والحديقة.",
+      "category": "أعشاب"
+    },
+    {
+      "id": 6,
+      "name": "شجرة تين",
+      "price": 1300,
+      "image": "/images/fig.jpg",
+      "description": "شجرة تين تنتج ثماراً لذيذة ومفيدة للصحة.",
+      "category": "أشجار مثمرة"
+    }
+  ]
+}
