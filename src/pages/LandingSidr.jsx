@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Check, Star, MapPin, ShieldCheck, Truck } from 'lucide-react';
 import OrderForm from '../components/OrderForm';
+import FAQ from '../components/FAQ';
+import TrustBadges from '../components/TrustBadges';
+import Testimonials from '../components/Testimonials';
+import StickyCTA from '../components/StickyCTA';
+import UrgencyBar from '../components/UrgencyBar';
 
 const LandingSidr = () => {
     // Facebook Pixel ViewContent Event
@@ -34,12 +39,18 @@ const LandingSidr = () => {
     const whatsappMessage = `مرحباً، أريد طلب شجيرة السدر اليمني بسعر ${product.price} د.ج`;
     const whatsappLink = `https://wa.me/213799330612?text=${encodeURIComponent(whatsappMessage)}`;
 
+    const scrollToOrder = () => {
+        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
-        <div className="bg-gray-50 min-h-screen font-sans" dir="rtl">
+        <div className="bg-gray-50 min-h-screen font-sans pb-20 md:pb-0" dir="rtl">
             <Helmet>
                 <title>{product.name} | خضراوي</title>
                 <meta name="description" content="احصل على شجيرة السدر اليمني الأصيلة. تتحمل الحرارة، سريعة النمو، ومفيدة جداً. اطلبها الآن بسعر 1100 د.ج فقط." />
             </Helmet>
+
+            <StickyCTA price={product.price} onClick={scrollToOrder} />
 
             {/* Navbar Simple */}
             <nav className="bg-white shadow-sm py-4">
@@ -96,6 +107,8 @@ const LandingSidr = () => {
                                 الشجرة المباركة التي يبحث عنها الجميع. تتحمل العطش، تعطي الظل، وثمارها دواء وشفاء. الخيار الأفضل لحديقتك أو أمام منزلك.
                             </p>
 
+                            <UrgencyBar />
+
                             {/* Price */}
                             <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-2xl mb-8 border-2 border-green-200">
                                 <div className="flex items-baseline gap-4">
@@ -107,16 +120,25 @@ const LandingSidr = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 text-gray-600">
+                            <div className="flex items-center gap-3 text-gray-600 mb-8">
                                 <ShieldCheck className="w-5 h-5 text-green-600" />
                                 <span className="font-medium">دفع عند الاستلام</span>
                                 <span className="text-gray-300">•</span>
                                 <span className="font-medium">ضمان الجودة 100%</span>
                             </div>
+
+                            <button
+                                onClick={scrollToOrder}
+                                className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition text-lg animate-bounce"
+                            >
+                                اطلب شتلتك الآن
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <TrustBadges />
 
             {/* Features Grid */}
             <section className="py-16 bg-gray-50">
@@ -135,8 +157,42 @@ const LandingSidr = () => {
                 </div>
             </section>
 
+            <Testimonials />
+
+            {/* FAQ Section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-4">أسئلة يتكرر طرحها</h2>
+                        <p className="text-gray-600">كل ما تحتاج معرفته عن شجرة السدر اليمني</p>
+                    </div>
+                    <FAQ questions={[
+                        {
+                            question: "هل هذه الشجرة مناسبة لمناخي؟",
+                            answer: "نعم، شجرة السدر اليمني معروفة بمقاومتها الشديدة للحرارة والجفاف، وهي مثالية للمناخ الجزائري خاصة في المناطق الحارة والجنوبية."
+                        },
+                        {
+                            question: "كم تستغرق لتنمو؟",
+                            answer: "السدر اليمني سريع النمو جداً. يمكن أن يصل ارتفاعها إلى مترين خلال سنة واحدة مع العناية الجيدة والري المنتظم في البداية."
+                        },
+                        {
+                            question: "هل تحتاج لعناية خاصة؟",
+                            answer: "لا، هي شجرة قوية جداً. تحتاج فقط للري المنتظم في الأشهر الأولى حتى تثبت جذورها، بعدها تعتمد على نفسها وتتحمل العطش."
+                        },
+                        {
+                            question: "متى تثمر؟",
+                            answer: "تبدأ بالإثمار عادة من السنة الثانية أو الثالثة. ثمارها (النبق) لذيذة ومفيدة جداً، وأوراقها تستخدم في العلاج."
+                        },
+                        {
+                            question: "كيف يتم التوصيل؟",
+                            answer: "نوصلها لك حتى باب منزلك أو لمكتب التوصيل في ولايتك. الشتلة تكون مغلفة بإحكام لضمان وصولها سليمة 100%."
+                        }
+                    ]} />
+                </div>
+            </section>
+
             {/* Order Form Section */}
-            <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+            <section id="order-form" className="py-16 bg-gradient-to-b from-gray-50 to-white">
                 <div className="container mx-auto px-4 max-w-2xl">
                     <OrderForm product={product} />
                 </div>
@@ -152,14 +208,12 @@ const LandingSidr = () => {
                     <p className="text-gray-600 max-w-2xl mx-auto mb-8">
                         نضمن لك وصول الشتلة سليمة وبحالة ممتازة. الدفع يكون بعد استلامك للطلبية والتأكد منها.
                     </p>
-                    <a
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={scrollToOrder}
                         className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-full shadow-lg transition"
                     >
                         اطلب شتلتك الآن
-                    </a>
+                    </button>
                 </div>
             </section>
 
