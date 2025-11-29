@@ -9,6 +9,7 @@ const Footer = () => {
 
                     {/* About */}
                     <div>
+                        <img src="/images/logo.png" alt="خضراوي" className="h-20 mb-4" />
                         <h3 className="text-xl font-bold mb-4">خضراوي</h3>
                         <p className="text-green-100 leading-relaxed">
                             مشروعك الأول لبيع الأشجار والنباتات في الجزائر. نوفر لك أفضل الشتلات بجودة عالية وخدمة توصيل ممتازة.
@@ -19,10 +20,10 @@ const Footer = () => {
                     <div>
                         <h3 className="text-xl font-bold mb-4">روابط سريعة</h3>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-green-100 hover:text-white">الرئيسية</a></li>
-                            <li><a href="#products" className="text-green-100 hover:text-white">المنتجات</a></li>
-                            <li><a href="#about" className="text-green-100 hover:text-white">من نحن</a></li>
-                            <li><a href="#contact" className="text-green-100 hover:text-white">اتصل بنا</a></li>
+                            <li><a href="/" className="text-green-100 hover:text-white">الرئيسية</a></li>
+                            <li><a href="/products" className="text-green-100 hover:text-white">المنتجات</a></li>
+                            <li><a href="/#about" className="text-green-100 hover:text-white">من نحن</a></li>
+                            <li><a href="/contact" className="text-green-100 hover:text-white">اتصل بنا</a></li>
                         </ul>
                     </div>
 
@@ -36,7 +37,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center justify-start">
                                 <Phone className="w-5 h-5 ml-2 text-green-300" />
-                                <span>0123 45 67 89</span>
+                                <span dir="ltr">+213 799 33 06 12</span>
                             </li>
                             <li className="flex items-center justify-start">
                                 <Mail className="w-5 h-5 ml-2 text-green-300" />
@@ -46,7 +47,7 @@ const Footer = () => {
 
                         {/* Social Media */}
                         <div className="flex space-x-4 space-x-reverse mt-6">
-                            <a href="#" className="bg-green-700 p-2 rounded-full hover:bg-green-600 transition">
+                            <a href="https://www.facebook.com/profile.php?id=61583400568542" target="_blank" rel="noopener noreferrer" className="bg-green-700 p-2 rounded-full hover:bg-green-600 transition">
                                 <Facebook className="w-5 h-5" />
                             </a>
                             <a href="#" className="bg-green-700 p-2 rounded-full hover:bg-green-600 transition">

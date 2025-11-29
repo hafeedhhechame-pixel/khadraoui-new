@@ -1,0 +1,26 @@
+# SEO Checklist for Khadraoui
+
+## Immediate Actions (After Deploy)
+
+- [ ] **Google Search Console**:
+    - Verify domain ownership.
+    - Submit `sitemap.xml` (located at `/sitemap.xml`).
+    - Inspect the Homepage URL to ensure it's indexable.
+
+- [ ] **Robots.txt**:
+    - Verify `https://your-domain.com/robots.txt` is accessible.
+    - Ensure it allows crawling (User-agent: * Allow: /).
+
+- [ ] **Meta Tags**:
+    - Check Homepage title and description in search results.
+    - Share a link on WhatsApp/Facebook to verify Open Graph image and title.
+
+- [ ] **Performance**:
+    - Run PageSpeed Insights.
+    - Ensure images are optimized (WebP format recommended).
+
+## Content Optimization
+
+- [ ] **Keywords**: Ensure "أشجار مثمرة", "شتلات", "الجزائر" are present in headings.
+- [ ] **Alt Text**: Verify all product images have descriptive alt text.
+- [ ] **Structured Data**: Validate the JSON-LD schema on the Homepage using Google's Rich Results Test.

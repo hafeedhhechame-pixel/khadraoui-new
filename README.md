@@ -1,16 +1,71 @@
-# React + Vite
+# Khadraoui — خضراوي
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional, scalable e-commerce website for selling fruit trees and agricultural products in Algeria. Built with Vite, React, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Brand**: Khadraoui (خضراوي)
+- **Stack**: React (Vite), Tailwind CSS, React Router, React Helmet Async
+- **Features**:
+  - Responsive Design (Mobile First)
+  - SEO Optimized (Meta tags, Open Graph, JSON-LD)
+  - Product Catalog & Details
+  - Contact Form
+  - Floating WhatsApp Button
+  - Dark/Light Mode Ready (Tailwind configured)
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v18 or higher)
+- npm or yarn
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/khadraoui-website.git
+    cd khadraoui-website
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Building for Production
+
+To create a production-ready build:
+
+```bash
+npm run build
+```
+
+This will generate a `dist` folder containing the static assets.
+
+## Deployment
+
+This project is ready to be deployed on Vercel, Netlify, or any static hosting service.
+
+### Vercel (Recommended)
+
+1.  Install Vercel CLI: `npm i -g vercel`
+2.  Run `vercel` in the project root.
+3.  Follow the prompts.
+
+See `deploy-instructions.txt` for more details.
+
+## Content Management
+
+Product data is currently stored in `src/data/products.json`. You can easily replace this with a Headless CMS like Sanity or Strapi in the future.
+
+## License
+
+All rights reserved © 2025 Khadraoui.

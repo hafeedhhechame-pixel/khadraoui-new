@@ -2,51 +2,119 @@
   "products": [
     {
       "id": 1,
-      "name": "شجرة ليمون قزمية",
+      "name": "شجيرة الليمون القزمية",
       "price": 1500,
       "image": "/images/lemon-dwarf.jpg",
+      "images": [
+        "/images/lemon-dwarf.jpg",
+        "/images/lemon-dwarf-2.jpg"
+      ],
       "description": "شجرة ليمون قزمية مثمرة ومناسبة للزراعة في الأصص.",
       "category": "أشجار مثمرة"
     },
     {
       "id": 2,
-      "name": "شجرة برتقال",
+      "name": "شجيرة البرتقال",
       "price": 1200,
       "image": "/images/orange.jpg",
+      "images": [
+        "/images/orange.jpg",
+        "/images/orange-2.jpg"
+      ],
       "description": "شجرة برتقال عالية الجودة، تنتج ثماراً حلوة المذاق.",
       "category": "أشجار مثمرة"
     },
     {
       "id": 3,
-      "name": "ياسمين",
+      "name": "شجيرة الياسمين",
       "price": 800,
       "image": "/images/jasmine.jpg",
+      "images": [
+        "/images/jasmine.jpg",
+        "/images/jasmine-1.jpg",
+        "/images/jasmine-3.jpg"
+      ],
       "description": "نبات الياسمين ذو الرائحة العطرة والزهور البيضاء الجميلة.",
       "category": "نباتات زينة"
     },
     {
       "id": 4,
-      "name": "شجرة زيتون",
+      "name": "شجيرة الزيتون",
       "price": 2000,
       "image": "/images/olive.jpg",
+      "images": [
+        "/images/olive.jpg",
+        "/images/olive-2.jpg"
+      ],
       "description": "شجرة زيتون مباركة، تتحمل الجفاف وتعيش طويلاً.",
       "category": "أشجار مثمرة"
     },
     {
       "id": 5,
-      "name": "نعناع وريحان",
+      "name": "النعناع والريحان",
       "price": 300,
       "image": "/images/herbs.jpg",
+      "images": [
+        "/images/herbs.jpg",
+        "/images/herbs-2.jpg"
+      ],
       "description": "مجموعة أعشاب عطرية طازجة للمطبخ والحديقة.",
       "category": "أعشاب"
     },
     {
       "id": 6,
-      "name": "شجرة تين",
+      "name": "شجيرة التين",
       "price": 1300,
-      "image": "/images/fig.jpg",
+      "image": "/images/fig-new-1.jpg",
+      "images": [
+        "/images/fig-new-1.jpg",
+        "/images/fig-new-2.jpg",
+        "/images/fig-new-3.jpg"
+      ],
       "description": "شجرة تين تنتج ثماراً لذيذة ومفيدة للصحة.",
       "category": "أشجار مثمرة"
+    },
+    {
+      "id": 7,
+      "name": "شجيرة السدر اليمني",
+      "price": 1100,
+      "image": "/images/sidr-1.jpg",
+      "images": [
+        "/images/sidr-1.jpg",
+        "/images/sidr-2.jpg",
+        "/images/sidr-3.jpg",
+        "/images/sidr-4.jpg"
+      ],
+      "description": "شتلة السدر اليمني عالية الجودة، معروفة بفوائدها الكثيرة وتحملها للظروف القاسية.",
+      "category": "أشجار برية"
+    },
+    {
+      "id": 8,
+      "name": "شجيرة الجهنمية",
+      "price": 900,
+      "image": "/images/bougainvillea.jpg",
+      "images": [
+        "/images/bougainvillea.jpg",
+        "/images/bougainvillea-2.jpg",
+        "/images/bougainvillea-3.jpg"
+      ],
+      "description": "شجرة الجهنمية الجميلة بألوانها الزاهية، مثالية للزينة والحدائق.",
+      "category": "نباتات زينة"
+    },
+    {
+      "id": 9,
+      "name": "شجيرة المورينجا",
+      "price": 1200,
+      "image": "/images/moringa.jpg",
+      "images": [
+        "/images/moringa.jpg",
+        "/images/moringa-2.jpg",
+        "/images/moringa-3.jpg",
+        "/images/moringa-4.jpg",
+        "/images/moringa-5.jpg"
+      ],
+      "description": "شجرة المورينجا المعجزة، غنية بالفيتامينات والمعادن.",
+      "category": "أشجار طبية"
     }
   ]
 }

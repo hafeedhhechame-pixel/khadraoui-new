@@ -5,6 +5,7 @@ const Contact = () => {
     return (
         <div className="bg-gray-50 min-h-screen py-12">
             <div className="container mx-auto px-4">
+                <img src="/images/logo.png" alt="خضراوي" className="h-24 md:h-28 mx-auto mb-6" />
                 <h1 className="text-4xl font-bold text-center text-green-800 mb-12">تواصل معنا</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -19,7 +20,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900">الهاتف</h3>
-                                    <p className="text-gray-600" dir="ltr">+213 12 34 56 789</p>
+                                    <p className="text-gray-600 text-lg" dir="ltr">+213 799 33 06 12</p>
                                 </div>
                             </div>
 
@@ -55,13 +56,17 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    {/* Map Placeholder */}
-                    <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-lg h-96 md:h-auto relative">
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-500 font-bold text-xl">
-                            خريطة جوجل (مكان العنصر النائب)
-                        </div>
-                        {/* Embed Google Map here */}
-                        {/* <iframe src="..." width="100%" height="100%" ...></iframe> */}
+                    {/* Map */}
+                    <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-lg h-96 md:h-auto relative min-h-[400px]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105885.09337586866!2d6.772826694600644!3d33.3685846663242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1258fb0c5b0c5b0d%3A0x5b0c5b0c5b0c5b0d!2sEl%20Oued!5e0!3m2!1sen!2sdz!4v1625678901234!5m2!1sen!2sdz"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, minHeight: '400px' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            title="موقع خضراوي"
+                        ></iframe>
                     </div>
                 </div>
             </div>

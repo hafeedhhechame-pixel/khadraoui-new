@@ -1,0 +1,38 @@
+# Deployment Instructions for Khadraoui Website
+
+## Option 1: Vercel (Recommended)
+
+1.  **Create a GitHub Repository**:
+    - Go to GitHub and create a new repository named `khadraoui-website`.
+    - Push your code:
+      ```bash
+      git init
+      git add .
+      git commit -m "Initial commit"
+      git branch -M main
+      git remote add origin https://github.com/YOUR_USERNAME/khadraoui-website.git
+      git push -u origin main
+      ```
+
+2.  **Connect to Vercel**:
+    - Go to [vercel.com](https://vercel.com) and sign up/login.
+    - Click "Add New..." -> "Project".
+    - Import your `khadraoui-website` repository.
+    - Framework Preset: Vite
+    - Build Command: `npm run build`
+    - Output Directory: `dist`
+    - Click "Deploy".
+
+3.  **Environment Variables**:
+    - No environment variables are strictly required for the static build, but if you add a CMS later, add them in Vercel Project Settings > Environment Variables.
+
+## Option 2: Netlify
+
+1.  Drag and drop the `dist` folder (generated after `npm run build`) into the Netlify Drop zone.
+2.  Or connect your GitHub repository similar to Vercel.
+
+## Post-Deploy Checks
+
+1.  **Verify Domain**: Ensure `khadraoui.dz` (or your domain) is connected.
+2.  **Test Forms**: Check if the contact form works (currently alerts, needs backend integration).
+3.  **Check SEO**: Run Google Lighthouse on the live URL.
