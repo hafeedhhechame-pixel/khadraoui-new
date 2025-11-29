@@ -10,11 +10,10 @@ const TrustBadges = () => {
             color: 'from-green-500 to-green-600'
         },
         {
-            image: '/images/trendbox-logo.jpg',
-            title: 'شراكة لوجستية',
-            description: 'توصيل عبر TrendBox',
-            color: 'from-blue-500 to-blue-600',
-            isImage: true
+            icon: Truck,
+            title: 'توصيل سريع',
+            description: 'لجميع الولايات',
+            color: 'from-blue-500 to-blue-600'
         },
         {
             icon: Award,
