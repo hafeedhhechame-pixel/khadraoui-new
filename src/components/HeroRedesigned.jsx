@@ -46,9 +46,13 @@ const HeroSection = ({ lang = 'ar' }) => {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
                 <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
-                    {/* Delivery Truck Icon - Free Floating */}
+                    {/* Custom Delivery Truck Image */}
                     <div className="mb-8 transform hover:scale-105 transition-transform duration-500">
-                        <Truck className="w-48 h-48 md:w-64 md:h-64 text-yellow-400 drop-shadow-2xl" strokeWidth={1.5} />
+                        <img
+                            src="/images/custom_delivery_truck.jpg"
+                            alt="Delivery Truck"
+                            className="w-full max-w-md h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+                        />
                     </div>
 
                     {/* Delivery Text */}
