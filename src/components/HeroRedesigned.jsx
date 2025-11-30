@@ -43,11 +43,12 @@ const HeroSection = ({ lang = 'ar' }) => {
 
                 <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
                     {/* Realistic Delivery Van Image */}
-                    <div className="mb-8 transform hover:scale-105 transition-transform duration-500">
+                    <div className="mb-8 transform hover:scale-105 transition-transform duration-500 bg-white p-4 rounded-2xl">
                         <img
                             src="/images/realistic_van_final.png?v=3"
                             alt="Khadraoui Delivery Van"
                             className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
+                            style={{ filter: 'brightness(1.15) saturate(0.85)' }}
                         />
                     </div>
 
