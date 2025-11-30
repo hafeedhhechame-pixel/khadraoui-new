@@ -29,7 +29,10 @@ const HeroSection = ({ lang = 'ar' }) => {
     return (
         <section className="relative bg-white overflow-hidden min-h-[600px] lg:h-[85vh] flex flex-col lg:flex-row">
             {/* Left Side - Full Logo */}
-            <div className="w-full lg:w-1/2 h-[50vh] lg:h-full bg-gradient-to-br from-gray-100 via-stone-100 to-gray-200 flex items-center justify-center p-8 lg:p-0 relative z-10">
+            <div className="w-full lg:w-1/2 h-[50vh] lg:h-full flex items-center justify-center p-8 lg:p-0 relative z-10"
+                style={{
+                    background: 'linear-gradient(135deg, #A8D5BA 0%, #E8DCC4 50%, #E5E7EB 100%)'
+                }}>
                 <img
                     src="/images/logo.png"
                     alt="Khadraoui Logo"
