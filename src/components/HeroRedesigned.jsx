@@ -33,7 +33,8 @@ const HeroSection = ({ lang = 'ar' }) => {
                 <img
                     src="/images/logo.png"
                     alt="Khadraoui Logo"
-                    className="w-full h-full object-contain max-w-md lg:max-w-full drop-shadow-xl animate-fade-in"
+                    className="w-full h-full object-contain max-w-md lg:max-w-full animate-fade-in"
+                    style={{ mixBlendMode: 'darken' }}
                 />
             </div>
 
