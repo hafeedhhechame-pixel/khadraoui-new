@@ -33,45 +33,15 @@ const HeroSection = ({ lang = 'ar' }) => {
             <div className="w-full lg:w-1/2 h-[50vh] lg:h-full bg-white flex items-center justify-center p-8 lg:p-0 relative z-10">
                 <img
                     src="/images/logo.png"
-                    alt="Khadraoui Logo"
-                    className="w-full h-full object-contain max-w-md lg:max-w-full drop-shadow-xl animate-fade-in"
-                />
-            </div>
-
-            {/* Right Side - Truck & Content */}
-            <div className="w-full lg:w-1/2 h-auto lg:h-full bg-white text-gray-900 flex flex-col justify-center items-center p-8 lg:p-16 relative">
-
-                <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
-                    {/* Realistic Delivery Van Image */}
-                    <div className="mb-8 transform hover:scale-105 transition-transform duration-500 bg-white p-4 rounded-2xl">
-                        <img
-                            src="/images/van_final_clean.jpg"
-                            alt="Khadraoui Delivery Van"
-                            className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
-                        />
-                    </div>
-
-                    {/* Delivery Text */}
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-green-900">
-                        {text.delivery}
-                    </h2>
-
-                    <p className="text-gray-600 text-lg mb-8 opacity-90 hidden md:block">
-                        {text.desc}
-                    </p>
-
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                        <Link to={isFrench ? "/fr/products" : "/products"} className="group bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
-                            {text.ctaPrimary}
+                    {text.ctaPrimary}
                         </Link>
-                        <Link to={isFrench ? "/fr/contact" : "/contact"} className="group bg-green-900 hover:bg-green-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg text-center">
-                            {text.ctaSecondary}
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <Link to={isFrench ? "/fr/contact" : "/contact"} className="group bg-green-900 hover:bg-green-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg text-center">
+                {text.ctaSecondary}
+            </Link>
+        </div>
+                </div >
+            </div >
+        </section >
     );
 };
 
