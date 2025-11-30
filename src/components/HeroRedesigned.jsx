@@ -29,12 +29,11 @@ const HeroSection = ({ lang = 'ar' }) => {
     return (
         <section className="relative bg-white overflow-hidden min-h-[600px] lg:h-[85vh] flex flex-col lg:flex-row">
             {/* Left Side - Full Logo */}
-            <div className="w-full lg:w-1/2 h-[50vh] lg:h-full bg-gradient-to-br from-green-700 via-green-600 to-green-500 flex items-center justify-center p-8 lg:p-0 relative z-10">
+            <div className="w-full lg:w-1/2 h-[50vh] lg:h-full bg-gradient-to-br from-gray-100 via-stone-100 to-gray-200 flex items-center justify-center p-8 lg:p-0 relative z-10">
                 <img
                     src="/images/logo.png"
                     alt="Khadraoui Logo"
-                    className="w-full h-full object-contain max-w-md lg:max-w-full drop-shadow-2xl animate-fade-in"
-                    style={{ mixBlendMode: 'multiply' }}
+                    className="w-full h-full object-contain max-w-md lg:max-w-full drop-shadow-xl animate-fade-in"
                 />
             </div>
 
