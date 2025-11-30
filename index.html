@@ -6,20 +6,65 @@
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="خضراوي - متجر متخصص في بيع الأشجار والنباتات في الجزائر. توصيل لجميع الولايات الـ58. أشجار مثمرة، نباتات زينة، وأشجار ظل بأفضل الأسعار." />
+  <meta name="keywords"
+    content="خضراوي, أشجار, نباتات, الجزائر, توصيل, أشجار مثمرة, نباتات زينة, khadraoui, trees, plants, algeria" />
+  <meta name="author" content="Khadraoui - خضراوي" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Arabic" />
+  <link rel="canonical" href="https://khadraui.netlify.app/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://khadraui.netlify.app/" />
+  <meta property="og:title" content="خضراوي - Khadraoui | أشجار ونباتات في الجزائر" />
+  <meta property="og:description"
+    content="متجر متخصص في بيع الأشجار والنباتات. توصيل لجميع الولايات الـ58. أشجار مثمرة، نباتات زينة بأفضل الأسعار." />
+  <meta property="og:image" content="https://khadraui.netlify.app/images/logo.png" />
+  <meta property="og:locale" content="ar_DZ" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://khadraui.netlify.app/" />
+  <meta property="twitter:title" content="خضراوي - Khadraoui | أشجار ونباتات في الجزائر" />
+  <meta property="twitter:description" content="متجر متخصص في بيع الأشجار والنباتات. توصيل لجميع الولايات الـ58." />
+  <meta property="twitter:image" content="https://khadraui.netlify.app/images/logo.png" />
+
   <!-- PWA Meta Tags -->
   <meta name="theme-color" content="#2D6A4F" />
-  <meta name="description" content="متجر خضراوي لبيع الأشجار والنباتات في الجزائر" />
   <link rel="manifest" href="/manifest.json?v=4" />
   <link rel="apple-touch-icon" href="/images/logo.png" />
 
-  <title>خضراوي - Khadraoui</title>
+  <title>خضراوي - Khadraoui | أشجار ونباتات في الجزائر - توصيل لـ58 ولاية</title>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "خضراوي - Khadraoui",
+    "image": "https://khadraui.netlify.app/images/logo.png",
+    "@id": "https://khadraui.netlify.app",
+    "url": "https://khadraui.netlify.app",
+    "telephone": "+213799330612",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "DZ"
+    },
+    "description": "متجر متخصص في بيع الأشجار والنباتات في الجزائر. توصيل لجميع الولايات الـ58."
+  }
+  </script>
 
   <!-- Meta Pixel Code -->
   <script>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
