@@ -45,13 +45,12 @@ const HeroSection = ({ lang = 'ar' }) => {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
                 <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
-                    {/* Branded Truck Image */}
-                    <div className="mb-8 transform hover:scale-105 transition-transform duration-500">
+                    {/* Branded Truck Image - with background to hide checkerboard */}
+                    <div className="mb-8 transform hover:scale-105 transition-transform duration-500 bg-gradient-to-br from-green-900 via-green-800 to-gray-900 rounded-2xl p-6">
                         <img
                             src="/images/branded_delivery_truck.png"
                             alt="Delivery Truck"
                             className="w-64 md:w-80 lg:w-96 h-auto drop-shadow-2xl animate-float"
-                            style={{ mixBlendMode: 'multiply' }}
                         />
                     </div>
 
