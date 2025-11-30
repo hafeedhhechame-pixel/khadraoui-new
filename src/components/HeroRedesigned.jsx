@@ -39,11 +39,7 @@ const HeroSection = ({ lang = 'ar' }) => {
             </div>
 
             {/* Right Side - Truck & Content */}
-            <div className="w-full lg:w-1/2 h-auto lg:h-full bg-gradient-to-br from-green-900 via-green-800 to-gray-900 text-white flex flex-col justify-center items-center p-8 lg:p-16 relative">
-                {/* Background Effects */}
-                <div className="absolute inset-0 bg-black/10"></div>
-                <div className="absolute top-0 right-0 w-64 h-64 bg-green-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div className="w-full lg:w-1/2 h-auto lg:h-full bg-white text-gray-900 flex flex-col justify-center items-center p-8 lg:p-16 relative">
 
                 <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
                     {/* Realistic Delivery Van Image */}
@@ -51,16 +47,16 @@ const HeroSection = ({ lang = 'ar' }) => {
                         <img
                             src="/images/realistic_van_final.png?v=3"
                             alt="Khadraoui Delivery Van"
-                            className="w-full max-w-md h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+                            className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
                         />
                     </div>
 
                     {/* Delivery Text */}
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.3)' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-green-900">
                         {text.delivery}
                     </h2>
 
-                    <p className="text-green-100 text-lg mb-8 opacity-90 hidden md:block">
+                    <p className="text-gray-600 text-lg mb-8 opacity-90 hidden md:block">
                         {text.desc}
                     </p>
 
@@ -69,7 +65,7 @@ const HeroSection = ({ lang = 'ar' }) => {
                         <Link to={isFrench ? "/fr/products" : "/products"} className="group bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
                             {text.ctaPrimary}
                         </Link>
-                        <Link to={isFrench ? "/fr/contact" : "/contact"} className="group bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg text-center">
+                        <Link to={isFrench ? "/fr/contact" : "/contact"} className="group bg-green-900 hover:bg-green-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg text-center">
                             {text.ctaSecondary}
                         </Link>
                     </div>
