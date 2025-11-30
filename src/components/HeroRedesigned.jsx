@@ -31,7 +31,46 @@ const HeroSection = ({ lang = 'ar' }) => {
             {/* Left Side - Full Logo */}
             <div className="w-full lg:w-1/2 h-[50vh] lg:h-full bg-white flex items-center justify-center p-8 lg:p-0 relative z-10">
                 <img
+                    src="/images/logo.png"
+                    alt="Khadraoui Logo"
+                    className="w-full h-full object-contain max-w-md lg:max-w-full drop-shadow-xl animate-fade-in"
+                />
+            </div>
+
+            {/* Right Side - Van as Full Background */}
+            <div className="w-full lg:w-1/2 h-auto lg:h-full relative text-white flex flex-col justify-center items-center p-8 lg:p-16"
+                style={{
+                    backgroundImage: 'url(/images/van_final_clean.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}>
+
+                {/* Dark Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
+
+                <div className="relative z-10 flex flex-col items-center text-center max-w-lg">
+                    {/* Delivery Text */}
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+                        {text.delivery}
+                    </h2>
+
+                    <p className="text-white text-lg mb-8 opacity-90 hidden md:block drop-shadow-lg">
+                        {text.desc}
+                    </p>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                        <Link to={isFrench ? "/fr/products" : "/products"} className="group bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
+                            {text.ctaPrimary}
+                        </Link>
+                        <Link to={isFrench ? "/fr/contact" : "/contact"} className="group bg-white hover:bg-gray-100 text-green-900 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg text-center">
+                            {text.ctaSecondary}
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
-                export default HeroSection;
+export default HeroSection;
