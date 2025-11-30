@@ -49,7 +49,7 @@ const HeroSection = ({ lang = 'ar' }) => {
                     {/* Realistic Delivery Van Image */}
                     <div className="mb-8 transform hover:scale-105 transition-transform duration-500">
                         <img
-                            src="/images/realistic_van_final.png"
+                            src="/images/realistic_van_final.png?v=3"
                             alt="Khadraoui Delivery Van"
                             className="w-full max-w-md h-auto rounded-2xl shadow-2xl border-4 border-white/20"
                         />
