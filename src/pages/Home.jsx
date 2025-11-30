@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import HeroSection from '../components/Hero';
+import HeroSection from '../components/HeroRedesigned';
 import TrustBadges from '../components/TrustBadges';
 import About from '../components/About';
 import Statistics from '../components/Statistics';
