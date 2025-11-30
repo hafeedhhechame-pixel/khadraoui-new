@@ -78,7 +78,7 @@ const FloatingMessenger = () => {
             href={messengerUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed z-50 bg-[#0084FF] hover:bg-[#0073E6] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+            className="fixed z-50 bg-[#0084FF] hover:bg-[#0073E6] text-white p-6 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
             style={{
                 left: `${position.x}px`,
                 top: `${position.y}px`,
@@ -89,7 +89,7 @@ const FloatingMessenger = () => {
             onClick={handleClick}
         >
             {/* Messenger Icon */}
-            <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
+            <svg viewBox="0 0 24 24" className="w-10 h-10" fill="currentColor">
                 <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.912 1.449 5.506 3.713 7.201V22l3.46-1.897c.924.254 1.903.39 2.827.39 5.523 0 10-4.145 10-9.243C22 6.145 17.523 2 12 2zm.993 12.416l-2.556-2.73-4.99 2.73 5.488-5.822 2.617 2.73 4.929-2.73-5.488 5.822z" />
             </svg>
 
