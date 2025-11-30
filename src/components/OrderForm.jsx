@@ -85,12 +85,38 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Create WhatsApp message
+        // Prepare data for Google Sheets
         const productName = isFrench ? product.name_fr : product.name;
+        const sheetData = {
+            name: formData.name,
+            phone: formData.phone,
+            wilaya: formData.wilaya,
+            commune: formData.commune,
+            address: formData.deliveryType === 'home' ? formData.address : 'توصيل للمكتب',
+            product: productName,
+            price: product.price,
+            notes: formData.notes || '-'
+        };
+
+        // Send to Google Sheets
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbxCCtdvz081N6KGg7nrBm1eE0WN6uelsYiIVZFjZS6WBSsZY8gDKowOD0xlgvpkFHFO/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sheetData)
+            });
+        } catch (error) {
+            console.error('Error sending to Google Sheets:', error);
+        }
+
+        // Create WhatsApp message
         const message = isFrench
             ? `Bonjour! Je voudrais commander:\n\n📦 Produit: ${productName}\n💰 Prix: ${product.price} DZD\n\n👤 Nom: ${formData.name}\n📱 Téléphone: ${formData.phone}\n📍 Wilaya: ${formData.wilaya}\n🏘️ Commune: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 Adresse: ${formData.address}` : '\n🏢 Livraison au bureau'}${formData.notes ? `\n\n📝 Notes: ${formData.notes}` : ''}`
             : `مرحبا! أرغب في طلب:\n\n📦 المنتج: ${productName}\n💰 السعر: ${product.price} د.ج\n\n👤 الاسم: ${formData.name}\n📱 الهاتف: ${formData.phone}\n📍 الولاية: ${formData.wilaya}\n🏘️ البلدية: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 العنوان: ${formData.address}` : '\n🏢 التوصيل للمكتب'}${formData.notes ? `\n\n📝 ملاحظات: ${formData.notes}` : ''}`;

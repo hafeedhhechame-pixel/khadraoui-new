@@ -38,9 +38,35 @@ const OrderFormFr = ({ product }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+
+        // Prepare data for Google Sheets
+        const sheetData = {
+            name: formData.name,
+            phone: formData.phone,
+            wilaya: formData.wilaya,
+            commune: formData.commune,
+            address: formData.deliveryType === 'home' ? formData.address : 'Livraison au bureau',
+            product: product.name,
+            price: product.price,
+            notes: formData.notes || '-'
+        };
+
+        // Send to Google Sheets
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbxCCtdvz081N6KGg7nrBm1eE0WN6uelsYiIVZFjZS6WBSsZY8gDKowOD0xlgvpkFHFO/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sheetData)
+            });
+        } catch (error) {
+            console.error('Error sending to Google Sheets:', error);
+        }
 
         // Create WhatsApp message
         const message = `
