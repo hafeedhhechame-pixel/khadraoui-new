@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, AlertCircle } from 'lucide-react';
 
-const UrgencyBar = () => {
+const UrgencyBar = ({ lang = 'ar' }) => {
     const [timeLeft, setTimeLeft] = useState({
         hours: 3,
         minutes: 45,
@@ -29,6 +29,11 @@ const UrgencyBar = () => {
 
     const formatTime = (val) => val.toString().padStart(2, '0');
 
+    const t = {
+        ar: { title: 'عرض محدود!', subtitle: 'ينتهي العرض خلال:' },
+        fr: { title: 'Offre Limitée!', subtitle: 'Se termine dans:' }
+    };
+    const text = t[lang] || t.ar;
     return (
         <div className="bg-red-50 border border-red-100 rounded-xl p-4 mb-6 flex items-center justify-between gap-3 animate-pulse">
             <div className="flex items-center gap-3">
@@ -36,8 +41,8 @@ const UrgencyBar = () => {
                     <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                    <p className="text-red-800 font-bold text-sm">عرض محدود!</p>
-                    <p className="text-red-600 text-xs">ينتهي العرض خلال:</p>
+                    <p className="text-red-800 font-bold text-sm">{text.title}</p>
+                    <p className="text-red-600 text-xs">{text.subtitle}</p>
                 </div>
             </div>
 

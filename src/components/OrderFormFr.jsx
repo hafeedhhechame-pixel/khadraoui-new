@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { User, Phone, MapPin, MessageSquare, Send, CheckCircle, Truck } from 'lucide-react';
 import { communesByWilaya } from '../data/communes';
 
-const OrderForm = ({ product, lang = 'ar' }) => {
-    const isFrench = lang === 'fr';
+const OrderFormFr = ({ product }) => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -18,64 +17,18 @@ const OrderForm = ({ product, lang = 'ar' }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const wilayas = [
-        "01 - أدرار",
-        "02 - الشلف",
-        "03 - الأغواط",
-        "04 - أم البواقي",
-        "05 - باتنة",
-        "06 - بجاية",
-        "07 - بسكرة",
-        "08 - بشار",
-        "09 - البليدة",
-        "10 - البويرة",
-        "11 - تمنراست",
-        "12 - تبسة",
-        "13 - تلمسان",
-        "14 - تيارت",
-        "15 - تيزي وزو",
-        "16 - الجزائر",
-        "17 - الجلفة",
-        "18 - جيجل",
-        "19 - سطيف",
-        "20 - سعيدة",
-        "21 - سكيكدة",
-        "22 - سيدي بلعباس",
-        "23 - عنابة",
-        "24 - قالمة",
-        "25 - قسنطينة",
-        "26 - المدية",
-        "27 - مستغانم",
-        "28 - المسيلة",
-        "29 - معسكر",
-        "30 - ورقلة",
-        "31 - وهران",
-        "32 - البيض",
-        "33 - إليزي",
-        "34 - برج بوعريريج",
-        "35 - بومرداس",
-        "36 - الطارف",
-        "37 - تندوف",
-        "38 - تيسمسيلت",
-        "39 - الوادي",
-        "40 - خنشلة",
-        "41 - سوق أهراس",
-        "42 - تيبازة",
-        "43 - ميلة",
-        "44 - عين الدفلى",
-        "45 - النعامة",
-        "46 - عين تموشنت",
-        "47 - غرداية",
-        "48 - غليزان",
-        "49 - تيميمون",
-        "50 - برج باجي مختار",
-        "51 - أولاد جلال",
-        "52 - بني عباس",
-        "53 - إن صالح",
-        "54 - إن قزام",
-        "55 - تقرت",
-        "56 - جانت",
-        "57 - المغير",
-        "58 - المنيعة"
+        "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna",
+        "06 - Béjaïa", "07 - Biskra", "08 - Béchar", "09 - Blida", "10 - Bouira",
+        "11 - Tamanrasset", "12 - Tébessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou",
+        "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
+        "21 - Skikda", "22 - Sidi Bel Abbès", "23 - Annaba", "24 - Guelma", "25 - Constantine",
+        "26 - Médéa", "27 - Mostaganem", "28 - M'Sila", "29 - Mascara", "30 - Ouargla",
+        "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerdès",
+        "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
+        "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma",
+        "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - Timimoun", "50 - Bordj Badji Mokhtar",
+        "51 - Ouled Djellal", "52 - Béni Abbès", "53 - In Salah", "54 - In Guezzam", "55 - Touggourt",
+        "56 - Djanet", "57 - El M'Ghair", "58 - El Meniaa"
     ];
 
     const handleChange = (e) => {
@@ -90,17 +43,26 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         setIsSubmitting(true);
 
         // Create WhatsApp message
-        const productName = isFrench ? product.name_fr : product.name;
-        const message = isFrench
-            ? `Bonjour! Je voudrais commander:\n\n📦 Produit: ${productName}\n💰 Prix: ${product.price} DZD\n\n👤 Nom: ${formData.name}\n📱 Téléphone: ${formData.phone}\n📍 Wilaya: ${formData.wilaya}\n🏘️ Commune: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 Adresse: ${formData.address}` : '\n🏢 Livraison au bureau'}${formData.notes ? `\n\n📝 Notes: ${formData.notes}` : ''}`
-            : `مرحبا! أرغب في طلب:\n\n📦 المنتج: ${productName}\n💰 السعر: ${product.price} د.ج\n\n👤 الاسم: ${formData.name}\n📱 الهاتف: ${formData.phone}\n📍 الولاية: ${formData.wilaya}\n🏘️ البلدية: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 العنوان: ${formData.address}` : '\n🏢 التوصيل للمكتب'}${formData.notes ? `\n\n📝 ملاحظات: ${formData.notes}` : ''}`;
+        const message = `
+🌿 *Nouvelle Commande - ${product.name}*
+
+👤 *Nom:* ${formData.name}
+📞 *Tél:* ${formData.phone}
+📍 *Wilaya:* ${formData.wilaya}
+🏘️ *Commune:* ${formData.commune}
+🏠 *Adresse:* ${formData.address}
+🚚 *Livraison:* ${formData.deliveryType === 'home' ? 'À Domicile' : 'Au Bureau (Stop Desk)'}
+${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
+
+💰 *Prix:* ${product.price} DZD
+        `.trim();
 
         const whatsappUrl = `https://wa.me/213799330612?text=${encodeURIComponent(message)}`;
 
         // Track Pixel Purchase Event
         if (window.fbq) {
             window.fbq('track', 'Purchase', {
-                content_name: productName,
+                content_name: product.name,
                 value: product.price,
                 currency: 'DZD',
                 num_items: 1
@@ -130,90 +92,31 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         }, 1000);
     };
 
-    const t = {
-        ar: {
-            successTitle: 'تم إرسال طلبك بنجاح!',
-            successMsg: 'سنتواصل معك قريباً عبر واتساب',
-            formTitle: 'اطلب الآن واحصل على عرض خاص',
-            formSubtitle: 'املأ البيانات وسنتواصل معك فوراً',
-            fullName: 'الاسم الكامل',
-            phone: 'رقم الهاتف',
-            wilaya: 'الولاية',
-            commune: 'البلدية',
-            address: 'العنوان التفصيلي',
-            deliveryType: 'نوع التوصيل',
-            homeDelivery: 'توصيل للمنزل',
-            deskDelivery: 'توصيل للمكتب',
-            notes: 'ملاحظات إضافية',
-            selectWilaya: 'اختر الولاية',
-            searchCommune: 'ابحث عن البلدية أو اكتب اسمها',
-            selectWilayaFirst: 'اختر الولاية أولاً',
-            enterName: 'أدخل اسمك الكامل',
-            phoneExample: '0555 12 34 56',
-            addressExample: 'الحي، الشارع، رقم المنزل...',
-            notesExample: 'أي ملاحظات أو طلبات خاصة...',
-            sending: 'جاري الإرسال...',
-            buyNow: 'اشتري الآن',
-            privacy: '🔒 معلوماتك محمية ولن تُستخدم إلا للتواصل معك',
-            required: '*',
-            optional: '(اختياري)'
-        },
-        fr: {
-            successTitle: 'Votre commande a été envoyée avec succès!',
-            successMsg: 'Nous vous contacterons bientôt via WhatsApp',
-            formTitle: 'Commandez maintenant et bénéficiez d\'une offre spéciale',
-            formSubtitle: 'Remplissez les informations et nous vous contacterons immédiatement',
-            fullName: 'Nom complet',
-            phone: 'Numéro de téléphone',
-            wilaya: 'Wilaya',
-            commune: 'Commune',
-            address: 'Adresse détaillée',
-            deliveryType: 'Type de livraison',
-            homeDelivery: 'Livraison à domicile',
-            deskDelivery: 'Livraison au bureau',
-            notes: 'Notes supplémentaires',
-            selectWilaya: 'Choisissez la wilaya',
-            searchCommune: 'Recherchez ou saisissez le nom de la commune',
-            selectWilayaFirst: 'Choisissez d\'abord la wilaya',
-            enterName: 'Entrez votre nom complet',
-            phoneExample: '0555 12 34 56',
-            addressExample: 'Quartier, rue, numéro...',
-            notesExample: 'Toutes notes ou demandes spéciales...',
-            sending: 'Envoi en cours...',
-            buyNow: 'Acheter maintenant',
-            privacy: '🔒 Vos informations sont protégées et ne seront utilisées que pour vous contacter',
-            required: '*',
-            optional: '(facultatif)'
-        }
-    };
-
-    const text = t[lang];
-
     if (isSubmitted) {
         return (
             <div className="bg-white p-8 rounded-2xl shadow-2xl text-center">
                 <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-12 h-12 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{text.successTitle}</h3>
-                <p className="text-gray-600">{text.successMsg}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Commande envoyée avec succès!</h3>
+                <p className="text-gray-600">Nous vous contacterons bientôt sur WhatsApp.</p>
             </div>
         );
     }
 
     return (
-        <div className="bg-white p-8 rounded-2xl shadow-2xl">
+        <div className="bg-white p-8 rounded-2xl shadow-2xl" dir="ltr">
             <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{text.formTitle}</h3>
-                <p className="text-gray-600">{text.formSubtitle}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Commandez maintenant et profitez de l'offre</h3>
+                <p className="text-gray-600">Remplissez le formulaire et nous vous contacterons immédiatement.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Name */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <User className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.fullName} {text.required}
+                        <User className="w-4 h-4 inline mr-1" />
+                        Nom Complet *
                     </label>
                     <input
                         type="text"
@@ -222,15 +125,15 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
-                        placeholder={text.enterName}
+                        placeholder="Entrez votre nom complet"
                     />
                 </div>
 
                 {/* Phone */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <Phone className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.phone} {text.required}
+                        <Phone className="w-4 h-4 inline mr-1" />
+                        Numéro de Téléphone *
                     </label>
                     <input
                         type="tel"
@@ -239,16 +142,15 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
-                        placeholder={text.phoneExample}
-                        dir="ltr"
+                        placeholder="0555 12 34 56"
                     />
                 </div>
 
                 {/* Wilaya */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <MapPin className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.wilaya} {text.required}
+                        <MapPin className="w-4 h-4 inline mr-1" />
+                        Wilaya *
                     </label>
                     <select
                         name="wilaya"
@@ -257,7 +159,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         required
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition bg-white"
                     >
-                        <option value="">{text.selectWilaya}</option>
+                        <option value="">Sélectionnez votre Wilaya</option>
                         {wilayas.map((wilaya, index) => (
                             <option key={index} value={wilaya}>{wilaya}</option>
                         ))}
@@ -267,8 +169,8 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                 {/* Commune */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <MapPin className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.commune} {text.required}
+                        <MapPin className="w-4 h-4 inline mr-1" />
+                        Commune *
                     </label>
                     <input
                         type="text"
@@ -276,24 +178,16 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         value={formData.commune}
                         onChange={handleChange}
                         required
-                        list={formData.wilaya && communesByWilaya[formData.wilaya] ? "communes-list" : undefined}
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
-                        placeholder={formData.wilaya ? text.searchCommune : text.selectWilayaFirst}
-                        disabled={!formData.wilaya}
+                        placeholder="Entrez votre commune"
                     />
-                    {formData.wilaya && communesByWilaya[formData.wilaya] && (
-                        <datalist id="communes-list">
-                            {communesByWilaya[formData.wilaya].map((commune, index) => (
-                                <option key={index} value={commune} />
-                            ))}
-                        </datalist>
-                    )}
                 </div>
+
                 {/* Delivery Type */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <Truck className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.deliveryType} {text.required}
+                        <Truck className="w-4 h-4 inline mr-1" />
+                        Type de Livraison *
                     </label>
                     <div className="grid grid-cols-2 gap-4">
                         <label className={`cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center gap-2 transition ${formData.deliveryType === 'home' ? 'border-primary bg-green-50 text-primary' : 'border-gray-200 hover:border-gray-300'}`}>
@@ -305,7 +199,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">{text.homeDelivery}</span>
+                            <span className="font-bold">À Domicile</span>
                         </label>
                         <label className={`cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center gap-2 transition ${formData.deliveryType === 'desk' ? 'border-primary bg-green-50 text-primary' : 'border-gray-200 hover:border-gray-300'}`}>
                             <input
@@ -316,7 +210,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">{text.deskDelivery}</span>
+                            <span className="font-bold">Au Bureau</span>
                         </label>
                     </div>
                 </div>
@@ -325,8 +219,8 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                 {formData.deliveryType === 'home' && (
                     <div className="animate-fade-in-up">
                         <label className="block text-gray-700 font-medium mb-2">
-                            <MapPin className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                            {text.address} {text.required}
+                            <MapPin className="w-4 h-4 inline mr-1" />
+                            Adresse Détaillée *
                         </label>
                         <input
                             type="text"
@@ -335,7 +229,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                             onChange={handleChange}
                             required
                             className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
-                            placeholder={text.addressExample}
+                            placeholder="Cité, Rue, N° Maison..."
                         />
                     </div>
                 )}
@@ -343,8 +237,8 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                 {/* Notes */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                        <MessageSquare className={`w-4 h-4 inline ${isFrench ? 'mr-1' : 'ml-1'}`} />
-                        {text.notes} {text.optional}
+                        <MessageSquare className="w-4 h-4 inline mr-1" />
+                        Notes Supplémentaires (Optionnel)
                     </label>
                     <textarea
                         name="notes"
@@ -352,7 +246,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         onChange={handleChange}
                         rows="3"
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition resize-none"
-                        placeholder={text.notesExample}
+                        placeholder="Vos remarques ou demandes spéciales..."
                     ></textarea>
                 </div>
 
@@ -365,22 +259,22 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                     {isSubmitting ? (
                         <>
                             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                            {text.sending}
+                            Envoi en cours...
                         </>
                     ) : (
                         <>
                             <Send className="w-5 h-5" />
-                            {text.buyNow}
+                            Acheter Maintenant
                         </>
                     )}
                 </button>
 
                 <p className="text-center text-sm text-gray-500 mt-4">
-                    {text.privacy}
+                    🔒 Vos informations sont protégées et utilisées uniquement pour vous contacter.
                 </p>
             </form>
-        </div >
+        </div>
     );
 };
 
-export default OrderForm;
+export default OrderFormFr;

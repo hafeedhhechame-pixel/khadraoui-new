@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "شجيرة الليمون القزمية",
+      "name_fr": "Citronnier Nain",
       "price": 1500,
       "image": "/images/lemon-dwarf.jpg",
       "images": [
@@ -10,11 +11,14 @@
         "/images/lemon-dwarf-2.jpg"
       ],
       "description": "شجرة ليمون قزمية مثمرة ومناسبة للزراعة في الأصص.",
-      "category": "أشجار مثمرة"
+      "description_fr": "Arbre fruitier nain adapté à la culture en pot, produisant des citrons.",
+      "category": "أشجار مثمرة",
+      "category_fr": "Arbres Fruitiers"
     },
     {
       "id": 2,
       "name": "شجيرة البرتقال",
+      "name_fr": "Oranger",
       "price": 1200,
       "image": "/images/orange.jpg",
       "images": [
@@ -22,11 +26,14 @@
         "/images/orange-2.jpg"
       ],
       "description": "شجرة برتقال عالية الجودة، تنتج ثماراً حلوة المذاق.",
-      "category": "أشجار مثمرة"
+      "description_fr": "Oranger de haute qualité, produisant des fruits sucrés.",
+      "category": "أشجار مثمرة",
+      "category_fr": "Arbres Fruitiers"
     },
     {
       "id": 3,
       "name": "شجيرة الياسمين",
+      "name_fr": "Jasmin",
       "price": 800,
       "image": "/images/jasmine.jpg",
       "images": [
@@ -35,11 +42,14 @@
         "/images/jasmine-3.jpg"
       ],
       "description": "نبات الياسمين ذو الرائحة العطرة والزهور البيضاء الجميلة.",
-      "category": "نباتات زينة"
+      "description_fr": "Plante de jasmin au parfum agréable et aux belles fleurs blanches.",
+      "category": "نباتات زينة",
+      "category_fr": "Plantes Ornementales"
     },
     {
       "id": 4,
       "name": "شجيرة الزيتون",
+      "name_fr": "Olivier",
       "price": 2000,
       "image": "/images/olive.jpg",
       "images": [
@@ -47,11 +57,14 @@
         "/images/olive-2.jpg"
       ],
       "description": "شجرة زيتون مباركة، تتحمل الجفاف وتعيش طويلاً.",
-      "category": "أشجار مثمرة"
+      "description_fr": "Olivier béni, résistant à la sécheresse et à longue durée de vie.",
+      "category": "أشجار مثمرة",
+      "category_fr": "Arbres Fruitiers"
     },
     {
       "id": 5,
       "name": "النعناع والريحان",
+      "name_fr": "Menthe et Basilic",
       "price": 300,
       "image": "/images/herbs.jpg",
       "images": [
@@ -59,11 +72,14 @@
         "/images/herbs-2.jpg"
       ],
       "description": "مجموعة أعشاب عطرية طازجة للمطبخ والحديقة.",
-      "category": "أعشاب"
+      "description_fr": "Ensemble d'herbes aromatiques fraîches pour la cuisine et le jardin.",
+      "category": "أعشاب",
+      "category_fr": "Herbes"
     },
     {
       "id": 6,
       "name": "شجيرة التين",
+      "name_fr": "Figuier",
       "price": 1300,
       "image": "/images/fig-new-1.jpg",
       "images": [
@@ -72,11 +88,14 @@
         "/images/fig-new-3.jpg"
       ],
       "description": "شجرة تين تنتج ثماراً لذيذة ومفيدة للصحة.",
-      "category": "أشجار مثمرة"
+      "description_fr": "Figuier produisant des fruits délicieux et sains.",
+      "category": "أشجار مثمرة",
+      "category_fr": "Arbres Fruitiers"
     },
     {
       "id": 7,
       "name": "شجيرة السدر اليمني",
+      "name_fr": "Sidr Yéménite",
       "price": 1100,
       "image": "/images/sidr-1.jpg",
       "images": [
@@ -86,11 +105,14 @@
         "/images/sidr-4.jpg"
       ],
       "description": "شتلة السدر اليمني عالية الجودة، معروفة بفوائدها الكثيرة وتحملها للظروف القاسية.",
-      "category": "أشجار برية"
+      "description_fr": "Plant de Sidr Yéménite de haute qualité, connu pour ses nombreux bienfaits et sa résistance.",
+      "category": "أشجار برية",
+      "category_fr": "Arbres Sauvages"
     },
     {
       "id": 8,
       "name": "شجيرة الجهنمية",
+      "name_fr": "Bougainvillier",
       "price": 900,
       "image": "/images/bougainvillea.jpg",
       "images": [
@@ -99,11 +121,14 @@
         "/images/bougainvillea-3.jpg"
       ],
       "description": "شجرة الجهنمية الجميلة بألوانها الزاهية، مثالية للزينة والحدائق.",
-      "category": "نباتات زينة"
+      "description_fr": "Beau bougainvillier aux couleurs vives, idéal pour la décoration et les jardins.",
+      "category": "نباتات زينة",
+      "category_fr": "Plantes Ornementales"
     },
     {
       "id": 9,
       "name": "شجيرة المورينجا",
+      "name_fr": "Moringa",
       "price": 1200,
       "image": "/images/moringa.jpg",
       "images": [
@@ -114,7 +139,9 @@
         "/images/moringa-5.jpg"
       ],
       "description": "شجرة المورينجا المعجزة، غنية بالفيتامينات والمعادن.",
-      "category": "أشجار طبية"
+      "description_fr": "L'arbre miracle Moringa, riche en vitamines et minéraux.",
+      "category": "أشجار طبية",
+      "category_fr": "Arbres Médicinaux"
     }
   ]
 }

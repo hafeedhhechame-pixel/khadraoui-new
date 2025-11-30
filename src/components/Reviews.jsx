@@ -1,42 +1,81 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
 
-const Reviews = () => {
-    const reviews = [
-        {
-            id: 1,
-            name: "أحمد بن محمد",
-            location: "الجزائر العاصمة",
-            rating: 5,
-            text: "ما شاء الله، الشتلات وصلت في حالة ممتازة والتغليف كان محكماً جداً. شكراً لكم على المصداقية.",
-            date: "منذ يومين"
+const Reviews = ({ lang = 'ar' }) => {
+    const content = {
+        ar: {
+            title: 'ماذا يقول عملاؤنا؟',
+            subtitle: 'ثقتكم هي سر نجاحنا',
+            reviews: [
+                {
+                    id: 1,
+                    name: "أحمد بن محمد",
+                    location: "الجزائر العاصمة",
+                    rating: 5,
+                    text: "ما شاء الله، الشتلات وصلت في حالة ممتازة والتغليف كان محكماً جداً. شكراً لكم على المصداقية.",
+                    date: "منذ يومين"
+                },
+                {
+                    id: 2,
+                    name: "سارة .ع",
+                    location: "وهران",
+                    rating: 5,
+                    text: "تعامل راقي وسرعة في التوصيل. شجرة الليمون بدأت تزهر عندي، أنصح الجميع بالتعامل معهم.",
+                    date: "منذ أسبوع"
+                },
+                {
+                    id: 3,
+                    name: "كريم .س",
+                    location: "قسنطينة",
+                    rating: 5,
+                    text: "أفضل مشتلة تعاملت معها. النصائح التي قدموها لي بعد الشراء كانت مفيدة جداً.",
+                    date: "منذ 3 أيام"
+                }
+            ]
         },
-        {
-            id: 2,
-            name: "سارة .ع",
-            location: "وهران",
-            rating: 5,
-            text: "تعامل راقي وسرعة في التوصيل. شجرة الليمون بدأت تزهر عندي، أنصح الجميع بالتعامل معهم.",
-            date: "منذ أسبوع"
-        },
-        {
-            id: 3,
-            name: "كريم .س",
-            location: "قسنطينة",
-            rating: 5,
-            text: "أفضل مشتلة تعاملت معها. النصائح التي قدموها لي بعد الشراء كانت مفيدة جداً.",
-            date: "منذ 3 أيام"
+        fr: {
+            title: 'Ce que disent nos clients',
+            subtitle: 'Votre confiance est notre secret de réussite',
+            reviews: [
+                {
+                    id: 1,
+                    name: "Ahmed Ben Mohamed",
+                    location: "Alger",
+                    rating: 5,
+                    text: "Machallah, les plants sont arrivés en excellent état et l'emballage était très soigné. Merci pour votre crédibilité.",
+                    date: "Il y a 2 jours"
+                },
+                {
+                    id: 2,
+                    name: "Sarah A.",
+                    location: "Oran",
+                    rating: 5,
+                    text: "Service haut de gamme et livraison rapide. Le citronnier commence à fleurir chez moi, je recommande à tout le monde.",
+                    date: "Il y a une semaine"
+                },
+                {
+                    id: 3,
+                    name: "Karim S.",
+                    location: "Constantine",
+                    rating: 5,
+                    text: "La meilleure pépinière avec laquelle j'ai traité. Les conseils qu'ils m'ont donnés après l'achat étaient très utiles.",
+                    date: "Il y a 3 jours"
+                }
+            ]
         }
-    ];
+    };
+
+    const t = content[lang] || content.ar;
+    const reviews = t.reviews;
 
     return (
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-800 mb-4">ماذا يقول عملاؤنا؟</h2>
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4">{t.title}</h2>
                     <div className="w-24 h-1 bg-green-600 mx-auto mb-4"></div>
-                    <p className="text-xl text-gray-600">ثقتكم هي سر نجاحنا</p>
+                    <p className="text-xl text-gray-600">{t.subtitle}</p>
                 </div>
 
                 {/* Reviews Grid */}

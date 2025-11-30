@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Package, Award, TrendingUp } from 'lucide-react';
 
-const Statistics = () => {
+const Statistics = ({ lang = 'ar' }) => {
     const [counts, setCounts] = useState({
         customers: 0,
         products: 0,
@@ -42,33 +42,52 @@ const Statistics = () => {
         return () => clearInterval(timer);
     }, []);
 
+    const t = {
+        ar: {
+            title: 'أرقامنا تتحدث عنا',
+            customers: 'عميل سعيد',
+            products: 'نوع من النباتات',
+            experience: 'سنوات خبرة',
+            satisfaction: 'نسبة الرضا'
+        },
+        fr: {
+            title: 'Nos Chiffres Parlent',
+            customers: 'Clients Satisfaits',
+            products: 'Variétés de Plantes',
+            experience: 'Années d\'Expérience',
+            satisfaction: 'Taux de Satisfaction'
+        }
+    };
+
+    const text = t[lang] || t.ar;
+
     const stats = [
         {
             icon: Users,
             value: counts.customers,
             suffix: '+',
-            label: 'عميل سعيد',
+            label: text.customers,
             color: 'from-blue-500 to-blue-600'
         },
         {
             icon: Package,
             value: counts.products,
             suffix: '+',
-            label: 'نوع من النباتات',
+            label: text.products,
             color: 'from-green-500 to-green-600'
         },
         {
             icon: Award,
             value: counts.experience,
             suffix: '+',
-            label: 'سنوات خبرة',
+            label: text.experience,
             color: 'from-purple-500 to-purple-600'
         },
         {
             icon: TrendingUp,
             value: counts.satisfaction,
             suffix: '%',
-            label: 'نسبة الرضا',
+            label: text.satisfaction,
             color: 'from-orange-500 to-orange-600'
         }
     ];
@@ -85,7 +104,7 @@ const Statistics = () => {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-white mb-4">أرقامنا تتحدث عنا</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">{text.title}</h2>
                     <div className="w-24 h-1 bg-white mx-auto"></div>
                 </div>
 

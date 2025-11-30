@@ -1,22 +1,26 @@
 import React from 'react';
-import Hero from '../components/Hero';
+import { useLocation } from 'react-router-dom';
+import HeroSection from '../components/Hero';
+import TrustBadges from '../components/TrustBadges';
 import About from '../components/About';
 import Statistics from '../components/Statistics';
 import FeaturedProducts from '../components/FeaturedProducts';
-import Videos from '../components/Videos';
 import Reviews from '../components/Reviews';
-import TrustBadges from '../components/TrustBadges';
+import Videos from '../components/Videos';
 
 const Home = () => {
+    const location = useLocation();
+    const lang = location.pathname.startsWith('/fr') ? 'fr' : 'ar';
+
     return (
         <>
-            <Hero />
-            <TrustBadges />
-            <About />
-            <Statistics />
-            <FeaturedProducts />
-            <Reviews />
-            <Videos />
+            <HeroSection lang={lang} />
+            <TrustBadges lang={lang} />
+            <About lang={lang} />
+            <Statistics lang={lang} />
+            <FeaturedProducts lang={lang} />
+            <Reviews lang={lang} />
+            <Videos lang={lang} />
         </>
     );
 };

@@ -1,30 +1,47 @@
 import React from 'react';
-import { Shield, Truck, Award, HeadphonesIcon } from 'lucide-react';
+import { Shield, Truck, Award, HeadphonesIcon, Banknote } from 'lucide-react';
 
-const TrustBadges = () => {
+const TrustBadges = ({ lang = 'ar' }) => {
+    const content = {
+        ar: {
+            quality: { title: 'ضمان الجودة', desc: '100% شتلات أصلية' },
+            payment: { title: 'الدفع عند الاستلام', desc: 'عاين سلعتك ثم ادفع' },
+            exp: { title: 'خبرة 7 سنوات', desc: 'في مجال الزراعة' },
+            support: { title: 'دعم متواصل', desc: 'نصائح مجانية' }
+        },
+        fr: {
+            quality: { title: 'Qualité Garantie', desc: '100% Authentique' },
+            payment: { title: 'Paiement à la livraison', desc: 'Vérifiez puis payez' },
+            exp: { title: '7 Ans d\'Expérience', desc: 'Dans l\'agriculture' },
+            support: { title: 'Support Continu', desc: 'Conseils gratuits' }
+        }
+    };
+
+    const t = content[lang] || content.ar;
+
     const badges = [
         {
             icon: Shield,
-            title: 'ضمان الجودة',
-            description: '100% شتلات أصلية',
+            title: t.quality.title,
+            description: t.quality.desc,
             color: 'from-green-500 to-green-600'
         },
         {
-            icon: Truck,
-            title: 'توصيل سريع',
-            description: 'لجميع الولايات',
+            icon: Banknote,
+            title: t.payment.title,
+            description: t.payment.desc,
             color: 'from-blue-500 to-blue-600'
         },
         {
             icon: Award,
-            title: 'خبرة 7 سنوات',
-            description: 'في مجال الزراعة',
+            title: t.exp.title,
+            description: t.exp.desc,
             color: 'from-yellow-500 to-yellow-600'
         },
         {
             icon: HeadphonesIcon,
-            title: 'دعم متواصل',
-            description: 'نصائح مجانية',
+            title: t.support.title,
+            description: t.support.desc,
             color: 'from-purple-500 to-purple-600'
         }
     ];
