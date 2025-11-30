@@ -49,7 +49,7 @@ const HeroSection = ({ lang = 'ar' }) => {
                     {/* Custom Delivery Truck Image */}
                     <div className="mb-8 transform hover:scale-105 transition-transform duration-500">
                         <img
-                            src="/images/custom_delivery_truck.jpg?v=2"
+                            src="/images/new_truck_final.jpg"
                             alt="Delivery Truck"
                             className="w-full max-w-md h-auto rounded-2xl shadow-2xl border-4 border-white/20"
                         />
