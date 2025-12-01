@@ -65,7 +65,7 @@ const OrderFormFr = ({ product }) => {
 
         // Send to Google Sheets
         try {
-            await fetch('https://script.google.com/macros/s/AKfycby4MoCCOh1x9iEZtzq5ZPp5GHpMr4Pgx0_DH3VFQBgTIXn1JoNBdMWK3sHJ9s-cnLOAaQ/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbyE0SsB5Dp_oT3PWT-K47F23AyIMFhenubBFZ0QdOi83L7NJ7SEweD6Ak7WDmiSTE2_/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
