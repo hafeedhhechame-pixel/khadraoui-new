@@ -129,10 +129,6 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         try {
             await fetch('https://hooks.zapier.com/hooks/catch/25556870/uk8wr9r/', {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify(sheetData)
             });
         } catch (error) {
