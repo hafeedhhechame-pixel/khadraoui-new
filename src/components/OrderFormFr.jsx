@@ -77,6 +77,20 @@ const OrderFormFr = ({ product }) => {
             console.error('Error sending to Google Sheets:', error);
         }
 
+        // Send to Zapier
+        try {
+            await fetch('https://hooks.zapier.com/hooks/catch/25556870/uk8wr9r/', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sheetData)
+            });
+        } catch (error) {
+            console.error('Error sending to Zapier:', error);
+        }
+
         // Create WhatsApp message
         const message = `
 🌿 *Nouvelle Commande - ${product.name}*

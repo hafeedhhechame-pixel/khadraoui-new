@@ -125,6 +125,20 @@ const OrderForm = ({ product, lang = 'ar' }) => {
             console.error('Error sending to Google Sheets:', error);
         }
 
+        // Send to Zapier
+        try {
+            await fetch('https://hooks.zapier.com/hooks/catch/25556870/uk8wr9r/', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sheetData)
+            });
+        } catch (error) {
+            console.error('Error sending to Zapier:', error);
+        }
+
         // Create WhatsApp message
         const message = isFrench
             ? `Bonjour! Je voudrais commander:\\n\\n📦 Produit: ${productName}\\n🔢 Quantité: ${formData.quantity}\\n💰 Prix unitaire: ${product.price} DZD\\n🚚 Frais de livraison: ${deliveryFee} DZD\\n💵 Total: ${totalPrice} DZD\\n\\n👤 Nom: ${formData.name}\\n📱 Téléphone: ${formData.phone}\\n📍 Wilaya: ${formData.wilaya}\\n🏘️ Commune: ${formData.commune}${formData.deliveryType === 'home' ? `\\n🏠 Adresse: ${formData.address}` : '\\n🏢 Livraison au bureau'}${formData.notes ? `\\n\\n📝 Notes: ${formData.notes}` : ''}`
