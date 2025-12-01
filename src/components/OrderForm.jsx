@@ -113,7 +113,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
 
         // Send to Google Sheets
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbyE0SsB5Dp_oT3PWT-K47F23AyIMFhenubBFZ0QdOi83L7NJ7SEweD6Ak7WDmiSTE2_/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbzqrzCRWniHlFKgETWzF4G0x_2TQ-aiOn-jtXmiyCpFDoNc3YntgDLpoIkIb_25d-tS/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
