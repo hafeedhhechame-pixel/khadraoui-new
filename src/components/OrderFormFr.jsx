@@ -65,13 +65,13 @@ const OrderFormFr = ({ product }) => {
 
         // Send to Google Sheets
         try {
+            const formDataToSend = new FormData();
+            Object.keys(sheetData).forEach(key => formDataToSend.append(key, sheetData[key]));
+
             await fetch('https://script.google.com/macros/s/AKfycbwzWs03tb10aP2mO3dbsyCU-lqNWVzc5bBrH_weCxeauR7pG10hKOitfX8BK0dRbAGaDw/exec', {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8',
-                },
-                body: JSON.stringify(sheetData)
+                body: formDataToSend
             });
         } catch (error) {
             console.error('Error sending to Google Sheets:', error);
