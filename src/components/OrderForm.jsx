@@ -11,6 +11,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         commune: '',
         address: '',
         deliveryType: 'home',
+        quantity: 1,
         notes: ''
     });
 
@@ -85,6 +86,11 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         });
     };
 
+    // Calculate prices
+    const deliveryFee = formData.deliveryType === 'home' ? 850 : 500;
+    const subtotal = product.price * formData.quantity;
+    const totalPrice = subtotal + deliveryFee;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -98,13 +104,16 @@ const OrderForm = ({ product, lang = 'ar' }) => {
             commune: formData.commune,
             address: formData.deliveryType === 'home' ? formData.address : 'توصيل للمكتب',
             product: productName,
+            quantity: formData.quantity,
             price: product.price,
+            deliveryFee: deliveryFee,
+            total: totalPrice,
             notes: formData.notes || '-'
         };
 
         // Send to Google Sheets
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbwBrR3Gs4Po3Gbx1-uOdDyWtNb_1vZU8LyHRYs5kTJLBtQ1QQapts2i2YD7awYoTADA/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbw7QfFEN9MbwZEtddrTGMvZlsGDPLg8l_eVOpbzFzlp4pucl-FuK4Im9ZYQDsvHXeyU/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
@@ -118,8 +127,8 @@ const OrderForm = ({ product, lang = 'ar' }) => {
 
         // Create WhatsApp message
         const message = isFrench
-            ? `Bonjour! Je voudrais commander:\n\n📦 Produit: ${productName}\n💰 Prix: ${product.price} DZD\n\n👤 Nom: ${formData.name}\n📱 Téléphone: ${formData.phone}\n📍 Wilaya: ${formData.wilaya}\n🏘️ Commune: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 Adresse: ${formData.address}` : '\n🏢 Livraison au bureau'}${formData.notes ? `\n\n📝 Notes: ${formData.notes}` : ''}`
-            : `مرحبا! أرغب في طلب:\n\n📦 المنتج: ${productName}\n💰 السعر: ${product.price} د.ج\n\n👤 الاسم: ${formData.name}\n📱 الهاتف: ${formData.phone}\n📍 الولاية: ${formData.wilaya}\n🏘️ البلدية: ${formData.commune}${formData.deliveryType === 'home' ? `\n🏠 العنوان: ${formData.address}` : '\n🏢 التوصيل للمكتب'}${formData.notes ? `\n\n📝 ملاحظات: ${formData.notes}` : ''}`;
+            ? `Bonjour! Je voudrais commander:\\n\\n📦 Produit: ${productName}\\n🔢 Quantité: ${formData.quantity}\\n💰 Prix unitaire: ${product.price} DZD\\n🚚 Frais de livraison: ${deliveryFee} DZD\\n💵 Total: ${totalPrice} DZD\\n\\n👤 Nom: ${formData.name}\\n📱 Téléphone: ${formData.phone}\\n📍 Wilaya: ${formData.wilaya}\\n🏘️ Commune: ${formData.commune}${formData.deliveryType === 'home' ? `\\n🏠 Adresse: ${formData.address}` : '\\n🏢 Livraison au bureau'}${formData.notes ? `\\n\\n📝 Notes: ${formData.notes}` : ''}`
+            : `مرحبا! أرغب في طلب:\\n\\n📦 المنتج: ${productName}\\n🔢 الكمية: ${formData.quantity}\\n💰 سعر الوحدة: ${product.price} د.ج\\n🚚 رسوم التوصيل: ${deliveryFee} د.ج\\n💵 المبلغ الإجمالي: ${totalPrice} د.ج\\n\\n👤 الاسم: ${formData.name}\\n📱 الهاتف: ${formData.phone}\\n📍 الولاية: ${formData.wilaya}\\n🏘️ البلدية: ${formData.commune}${formData.deliveryType === 'home' ? `\\n🏠 العنوان: ${formData.address}` : '\\n🏢 التوصيل للمكتب'}${formData.notes ? `\\n\\n📝 ملاحظات: ${formData.notes}` : ''}`;
 
         const whatsappUrl = `https://wa.me/213799330612?text=${encodeURIComponent(message)}`;
 
@@ -127,9 +136,9 @@ const OrderForm = ({ product, lang = 'ar' }) => {
         if (window.fbq) {
             window.fbq('track', 'Purchase', {
                 content_name: productName,
-                value: product.price,
+                value: totalPrice,
                 currency: 'DZD',
-                num_items: 1
+                num_items: formData.quantity
             });
         }
 
@@ -150,6 +159,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                     commune: '',
                     address: '',
                     deliveryType: 'home',
+                    quantity: 1,
                     notes: ''
                 });
             }, 3000);
@@ -168,8 +178,14 @@ const OrderForm = ({ product, lang = 'ar' }) => {
             commune: 'البلدية',
             address: 'العنوان التفصيلي',
             deliveryType: 'نوع التوصيل',
-            homeDelivery: 'توصيل للمنزل',
-            deskDelivery: 'توصيل للمكتب',
+            homeDelivery: 'توصيل للمنزل (850 دج)',
+            deskDelivery: 'توصيل للمكتب (500 دج)',
+            quantity: 'الكمية',
+            priceSummary: 'ملخص الأسعار',
+            subtotal: 'المجموع الفرعي',
+            deliveryFee: 'رسوم التوصيل',
+            total: 'المبلغ الإجمالي',
+            currency: 'دج',
             notes: 'ملاحظات إضافية',
             selectWilaya: 'اختر الولاية',
             searchCommune: 'ابحث عن البلدية أو اكتب اسمها',
@@ -195,8 +211,14 @@ const OrderForm = ({ product, lang = 'ar' }) => {
             commune: 'Commune',
             address: 'Adresse détaillée',
             deliveryType: 'Type de livraison',
-            homeDelivery: 'Livraison à domicile',
-            deskDelivery: 'Livraison au bureau',
+            homeDelivery: 'Livraison à domicile (850 DZD)',
+            deskDelivery: 'Livraison au bureau (500 DZD)',
+            quantity: 'Quantité',
+            priceSummary: 'Récapitulatif',
+            subtotal: 'Sous-total',
+            deliveryFee: 'Frais de livraison',
+            total: 'Total',
+            currency: 'DZD',
             notes: 'Notes supplémentaires',
             selectWilaya: 'Choisissez la wilaya',
             searchCommune: 'Recherchez ou saisissez le nom de la commune',
@@ -315,6 +337,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         </datalist>
                     )}
                 </div>
+
                 {/* Delivery Type */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -331,7 +354,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">{text.homeDelivery}</span>
+                            <span className="font-bold text-sm">{text.homeDelivery}</span>
                         </label>
                         <label className={`cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center gap-2 transition ${formData.deliveryType === 'desk' ? 'border-primary bg-green-50 text-primary' : 'border-gray-200 hover:border-gray-300'}`}>
                             <input
@@ -342,7 +365,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">{text.deskDelivery}</span>
+                            <span className="font-bold text-sm">{text.deskDelivery}</span>
                         </label>
                     </div>
                 </div>
@@ -365,6 +388,44 @@ const OrderForm = ({ product, lang = 'ar' }) => {
                         />
                     </div>
                 )}
+
+                {/* Quantity */}
+                <div>
+                    <label className="block text-gray-700 font-medium mb-2">
+                        🔢 {text.quantity} {text.required}
+                    </label>
+                    <select
+                        name="quantity"
+                        value={formData.quantity}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition bg-white"
+                    >
+                        {Array.from({ length: 100 }, (_, i) => i + 1).map(num => (
+                            <option key={num} value={num}>{num}</option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Price Summary */}
+                <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-2xl border-2 border-green-200">
+                    <h4 className="font-bold text-gray-800 mb-3 text-lg">💰 {text.priceSummary}</h4>
+                    <div className="space-y-2">
+                        <div className="flex justify-between text-gray-700">
+                            <span>{text.subtotal} ({formData.quantity} × {product.price} {text.currency})</span>
+                            <span className="font-bold">{subtotal} {text.currency}</span>
+                        </div>
+                        <div className="flex justify-between text-gray-700">
+                            <span>{text.deliveryFee} ({formData.deliveryType === 'home' ? text.homeDelivery.split('(')[0] : text.deskDelivery.split('(')[0]})</span>
+                            <span className="font-bold">{deliveryFee} {text.currency}</span>
+                        </div>
+                        <div className="border-t-2 border-green-300 pt-2 mt-2"></div>
+                        <div className="flex justify-between text-green-800 text-xl">
+                            <span className="font-bold">{text.total}</span>
+                            <span className="font-bold">{totalPrice} {text.currency}</span>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Notes */}
                 <div>

@@ -10,6 +10,7 @@ const OrderFormFr = ({ product }) => {
         commune: '',
         address: '',
         deliveryType: 'home',
+        quantity: 1,
         notes: ''
     });
 
@@ -38,6 +39,11 @@ const OrderFormFr = ({ product }) => {
         });
     };
 
+    // Calculate prices
+    const deliveryFee = formData.deliveryType === 'home' ? 850 : 500;
+    const subtotal = product.price * formData.quantity;
+    const totalPrice = subtotal + deliveryFee;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -50,13 +56,16 @@ const OrderFormFr = ({ product }) => {
             commune: formData.commune,
             address: formData.deliveryType === 'home' ? formData.address : 'Livraison au bureau',
             product: product.name,
+            quantity: formData.quantity,
             price: product.price,
+            deliveryFee: deliveryFee,
+            total: totalPrice,
             notes: formData.notes || '-'
         };
 
         // Send to Google Sheets
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbwBrR3Gs4Po3Gbx1-uOdDyWtNb_1vZU8LyHRYs5kTJLBtQ1QQapts2i2YD7awYoTADA/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbw7QfFEN9MbwZEtddrTGMvZlsGDPLg8l_eVOpbzFzlp4pucl-FuK4Im9ZYQDsvHXeyU/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
@@ -76,11 +85,14 @@ const OrderFormFr = ({ product }) => {
 📞 *Tél:* ${formData.phone}
 📍 *Wilaya:* ${formData.wilaya}
 🏘️ *Commune:* ${formData.commune}
-🏠 *Adresse:* ${formData.address}
-🚚 *Livraison:* ${formData.deliveryType === 'home' ? 'À Domicile' : 'Au Bureau (Stop Desk)'}
-${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
+🏠 *Adresse:* ${formData.deliveryType === 'home' ? formData.address : 'Au Bureau'}
+🚚 *Livraison:* ${formData.deliveryType === 'home' ? 'À Domicile (850 DZD)' : 'Au Bureau (500 DZD)'}
 
-💰 *Prix:* ${product.price} DZD
+🔢 *Quantité:* ${formData.quantity}
+💰 *Prix unitaire:* ${product.price} DZD
+🚚 *Frais de livraison:* ${deliveryFee} DZD
+💵 *Total:* ${totalPrice} DZD
+${formData.notes ? `\n📝 *Note:* ${formData.notes}` : ''}
         `.trim();
 
         const whatsappUrl = `https://wa.me/213799330612?text=${encodeURIComponent(message)}`;
@@ -89,9 +101,9 @@ ${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
         if (window.fbq) {
             window.fbq('track', 'Purchase', {
                 content_name: product.name,
-                value: product.price,
+                value: totalPrice,
                 currency: 'DZD',
-                num_items: 1
+                num_items: formData.quantity
             });
         }
 
@@ -112,6 +124,7 @@ ${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
                     commune: '',
                     address: '',
                     deliveryType: 'home',
+                    quantity: 1,
                     notes: ''
                 });
             }, 3000);
@@ -225,7 +238,7 @@ ${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">À Domicile</span>
+                            <span className="font-bold">À Domicile (850 DZD)</span>
                         </label>
                         <label className={`cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center gap-2 transition ${formData.deliveryType === 'desk' ? 'border-primary bg-green-50 text-primary' : 'border-gray-200 hover:border-gray-300'}`}>
                             <input
@@ -236,7 +249,7 @@ ${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
                                 onChange={handleChange}
                                 className="hidden"
                             />
-                            <span className="font-bold">Au Bureau</span>
+                            <span className="font-bold">Au Bureau (500 DZD)</span>
                         </label>
                     </div>
                 </div>
@@ -259,6 +272,44 @@ ${formData.notes ? `📝 *Note:* ${formData.notes}` : ''}
                         />
                     </div>
                 )}
+
+                {/* Quantity */}
+                <div>
+                    <label className="block text-gray-700 font-medium mb-2">
+                        🔢 Quantité *
+                    </label>
+                    <select
+                        name="quantity"
+                        value={formData.quantity}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition bg-white"
+                    >
+                        {Array.from({ length: 100 }, (_, i) => i + 1).map(num => (
+                            <option key={num} value={num}>{num}</option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Price Summary */}
+                <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-2xl border-2 border-green-200">
+                    <h4 className="font-bold text-gray-800 mb-3 text-lg">💰 Récapitulatif</h4>
+                    <div className="space-y-2">
+                        <div className="flex justify-between text-gray-700">
+                            <span>Sous-total ({formData.quantity} × {product.price} DZD)</span>
+                            <span className="font-bold">{subtotal} DZD</span>
+                        </div>
+                        <div className="flex justify-between text-gray-700">
+                            <span>Frais de livraison ({formData.deliveryType === 'home' ? 'À Domicile' : 'Au Bureau'})</span>
+                            <span className="font-bold">{deliveryFee} DZD</span>
+                        </div>
+                        <div className="border-t-2 border-green-300 pt-2 mt-2"></div>
+                        <div className="flex justify-between text-green-800 text-xl">
+                            <span className="font-bold">Total</span>
+                            <span className="font-bold">{totalPrice} DZD</span>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Notes */}
                 <div>
