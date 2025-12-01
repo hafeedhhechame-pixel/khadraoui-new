@@ -116,7 +116,7 @@ const OrderForm = ({ product, lang = 'ar' }) => {
             const formDataToSend = new FormData();
             Object.keys(sheetData).forEach(key => formDataToSend.append(key, sheetData[key]));
 
-            await fetch('https://script.google.com/macros/s/AKfycbzR3SJaFVUFNfwBaTTEgxLY7PwDxBbVr2bJjIeAKLmpHr-8cW96MzVTgYhBz9txd0nY6g/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbyzVAYlxFioNcsZzZVvr-s1SU5nJKRd-NK5FKrFQmEB5HeisHnRVluuWFgwAag3Yt1Z0w/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formDataToSend
