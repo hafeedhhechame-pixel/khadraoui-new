@@ -73,20 +73,21 @@ const OrderFormFr = ({ product }) => {
 
         // Create WhatsApp message
         const message = `
-🌿 *Nouvelle Commande - ${product.name}*
+Bonjour! Je voudrais commander:
 
-👤 *Nom:* ${formData.name}
-📞 *Tél:* ${formData.phone}
-📍 *Wilaya:* ${formData.wilaya}
-🏘️ *Commune:* ${formData.commune}
-🏠 *Adresse:* ${formData.deliveryType === 'home' ? formData.address : 'Au Bureau'}
-🚚 *Livraison:* ${formData.deliveryType === 'home' ? 'À Domicile (850 DZD)' : 'Au Bureau (500 DZD)'}
+Produit: ${product.name}
+Nom: ${formData.name}
+Tél: ${formData.phone}
+Wilaya: ${formData.wilaya}
+Commune: ${formData.commune}
+Adresse: ${formData.deliveryType === 'home' ? formData.address : 'Au Bureau'}
+Livraison: ${formData.deliveryType === 'home' ? 'À Domicile (850 DZD)' : 'Au Bureau (500 DZD)'}
 
-🔢 *Quantité:* ${formData.quantity}
-💰 *Prix unitaire:* ${product.price} DZD
-🚚 *Frais de livraison:* ${deliveryFee} DZD
-💵 *Total:* ${totalPrice} DZD
-${formData.notes ? `\n📝 *Note:* ${formData.notes}` : ''}
+Quantité: ${formData.quantity}
+Prix unitaire: ${product.price} DZD
+Frais de livraison: ${deliveryFee} DZD
+Total: ${totalPrice} DZD
+${formData.notes ? `\nNote: ${formData.notes}` : ''}
         `.trim();
 
         const whatsappUrl = `https://wa.me/213799330612?text=${encodeURIComponent(message)}`;
