@@ -14,6 +14,19 @@ const ProductDetail = () => {
 
     const product = productsData.products.find(p => p.id === parseInt(id));
 
+    // Facebook Pixel ViewContent Event
+    React.useEffect(() => {
+        if (product && window.fbq) {
+            window.fbq('track', 'ViewContent', {
+                content_name: product.name,
+                content_ids: [product.id.toString()],
+                content_type: 'product',
+                value: product.price,
+                currency: 'DZD'
+            });
+        }
+    }, [product]);
+
     // State to manage the currently selected image
     const [selectedImage, setSelectedImage] = useState(product ? product.image : '');
 
